@@ -1,3 +1,6 @@
+language = "python3"
+run = "python 02_item_name_price_v2.py"
+
 # The command that runs the program. Commented out because it is not run when the interpreter command is set
 # run = ["python3", "main.py"]
 # The primary language of the repl. There can be others, though!
