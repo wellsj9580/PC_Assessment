@@ -26,12 +26,5 @@ budget = budget_checker("What is your budget?: ")
 print("Your Budget: ", budget)
 
 
-item_name = item_name("Name: ")
         
   
-
-
-
-
-# Printing area 
-print("Your Budget: ", budget)

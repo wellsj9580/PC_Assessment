@@ -22,10 +22,6 @@ def budget_checker(question):
     except ValueError: 
       print (error)
 
-budget = budget_checker("What is your budget?: $")
-print("Your Budget: $", budget)
-
-
 # Asks user for  the name and price of item 
 def item_name (question):
   valid = False
@@ -36,9 +32,6 @@ def item_name (question):
         return response
     else:
         print ("Please enter the name of the item" )
-
-item_name = item_name("Item Name: ")
-
 
 def item_price(question): 
 
@@ -61,23 +54,11 @@ def item_price(question):
     except ValueError: 
       print (error)
 
-
+budget = budget_checker("What is your budget?: $")
+print("Your Budget: $", budget)
+print()
+item_name = item_name("Item Name: ")
 item_price = item_price("Item Price: $")
 
-
-
-# Printing area
-print ()
-print("Your Budget: $", budget)
-print ()
-
-print ("Items ")
-print ()
-print (item_name)
-
-print ()
-print ("Price ")
-print ()
-print (item_price)
 
 
