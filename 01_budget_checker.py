@@ -1,5 +1,6 @@
-# Function goes here
 
+
+#checks fro an interger more than 0 
 def budget_checker(question): 
 
   error = "The minimum is $5 "
@@ -7,24 +8,22 @@ def budget_checker(question):
   valid = False 
   while not valid: 
 
-    # Ask user for number and check it is valid
+    # ask user for number and check it is valid
     try: 
-      response = float(input(question))
+      response = int(input(question))
 
       if response <= 4.99 :
         print (error)
-        break 
       else:
         return response 
 
- # If a number is not entered then display an error 
+ # if an interger is not entered, display and error 
     except ValueError: 
       print (error)
 
 # main routine goes here 
-budget = budget_checker("What is your budget?: ")
-print("Your Budget: ", budget)
-
+budget = budget_checker("What is your budget?: $")
+print("Your Budget: $", budget)
 
         
   
