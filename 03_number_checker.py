@@ -1,24 +1,24 @@
-# Checks to make sure a number is entered 
-def num_checker(question): 
+# Function goes here 
+
+def num_checker (question):
 
   error = "Please enter the price of the item  "
+  
+  vaild = False 
+  while not vaild:
 
-  valid = False 
-  while not valid: 
-
-    # Ask user for number and check it is valid
+  # ask user for number and check it is valid 
     try: 
-      response = float(input(question))
+      response = float (input(question))
 
       if response <= 0 :
-        print (error)
-        break 
+          print (error)
       else:
         return response 
         
- # If a number is not entered then display an error 
+      # if an interger is not entered, display and error 
     except ValueError: 
       print (error)
 
-# Get price of the item 
-  item_price = num_checker (" Item Price:$")
+# main routine goes here 
+item_price = num_checker (" Item Price:$")

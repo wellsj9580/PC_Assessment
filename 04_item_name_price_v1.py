@@ -1,4 +1,5 @@
 # Function goes here
+import pandas
 
 # Asks user for budget 
 def budget_checker(question): 
@@ -22,9 +23,8 @@ def budget_checker(question):
     except ValueError: 
       print (error)
 
-
-# Checks to make sure a name is entered 
-def not_blank (question):
+# Asks user for  the name and price of item 
+def item_name (question):
   valid = False
   while not valid:
     response = input (question)
@@ -34,10 +34,9 @@ def not_blank (question):
     else:
         print ("Please enter the name of the item" )
 
-# Checks to make sure a number is entered 
-def num_checker(question): 
+def item_price(question): 
 
-  error = "Please enter the price of the item  "
+  error = "Please enter a number more than 0 "
 
   valid = False 
   while not valid: 
@@ -48,7 +47,6 @@ def num_checker(question):
 
       if response <= 0 :
         print (error)
-        break 
       else:
         return response 
         
@@ -56,23 +54,12 @@ def num_checker(question):
     except ValueError: 
       print (error)
 
-# Main routine 
+
 
 budget = budget_checker("What is your budget?: $")
 print("Your Budget: $", budget)
-
-# Loops to get name and price of item  
-item_name = ""
-while item_name.lower() != "xxx":
-
-  print ()
-  # Get name of the item
-  item_name = not_blank (" Item Name: ")
-  if item_name == "xxx":
-      break
-
-  # Get price of the item 
-  item_price = num_checker (" Item Price:$")
- 
+print()
+item_name = item_name("Item Name: ")
+item_price = item_price("Item Price: $")
 
 
