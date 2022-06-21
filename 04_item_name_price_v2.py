@@ -35,7 +35,7 @@ def not_blank (question):
         print ("Please enter the name of the item" )
 
 # Checks to make sure a number is entered 
-def num_checker(question): 
+def number_checker(question): 
 
   error = "Please enter the price of the item  "
 
@@ -72,4 +72,4 @@ while item_name.lower() != "xxx":
       break
 
   # Get price of the item 
-  item_price = num_checker (" Item Price:$")
+  item_price = number_checker (" Item Price:$")
