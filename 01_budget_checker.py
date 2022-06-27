@@ -1,4 +1,4 @@
-
+# Function starts 
 
 #checks fro an interger more than 0 
 def budget_checker(question): 

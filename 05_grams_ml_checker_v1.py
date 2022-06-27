@@ -1,5 +1,6 @@
 # Function goes here 
 
+# Checks to mkae sure a number is entered for weight
 def gram_ml_checker(question, low, exit_code = None):
 
     error = "Please enter a number that is more than {}".format(low)

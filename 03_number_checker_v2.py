@@ -1,3 +1,6 @@
+# Function starts 
+
+# Checks to make 
 def number_checker(question, low, exit_code = None):
 
     error = "Please enter a number that is more than {}".format(low)
@@ -26,6 +29,7 @@ def number_checker(question, low, exit_code = None):
 
 # Main routine starts here
 
+# Asks for the price of the item 
 user_choice = ""
 while user_choice != "xxx":
     user_choice = number_checker("Enter a number more than zero", 0, "xxx")

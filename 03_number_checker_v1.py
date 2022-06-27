@@ -1,5 +1,6 @@
 # Function goes here 
 
+# Checks to make sure a number is entered 
 def num_checker (question):
 
   error = "Please enter the price of the item  "
