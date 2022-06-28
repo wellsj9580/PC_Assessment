@@ -156,7 +156,6 @@ variable_frame = variable_expenses
 
   # *** Printing area ***
 
-print()
 print ("*** Overwiew ***")
 print()
 print("Your Budget: $", get_budget)

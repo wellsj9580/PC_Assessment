@@ -110,8 +110,10 @@ def get_item(var_fixed):
     if item_name.lower() == "xxx":
       break
     
+    # Asks for price of item
     price = num_checker(" Item Price:$" )
 
+    # Asks fro weight of item in gm/ml
     weight_gm = weight_checker(" Item Weight(G/ML): ") 
     
     # Converts weight in gm/ml to kg/l
@@ -147,7 +149,12 @@ variable_expenses = get_item("variable")
 variable_frame = variable_expenses
 
 
-  # *** Printing area *** 
+  # *** Printing area ***
+
+print()
+print ("*** Overwiew ***")
+print()
+print("Your Budget: $", get_budget)
 print()
 print(variable_frame)
 print()
