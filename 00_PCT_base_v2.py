@@ -80,6 +80,7 @@ def weight_checker (question):
     except ValueError: 
       print (error)
 
+# Changes price of items to currency 
 def currency(x):
   return "${:.2f}".format(x)
 

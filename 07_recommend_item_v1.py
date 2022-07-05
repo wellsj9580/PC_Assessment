@@ -58,7 +58,7 @@ def not_blank (question):
 # Checks to make sure a number is entered 
 def weight_checker (question):
 
-  error = "Please enter the price of the item  "
+  error = "Please enter a number more than 50g/ml  "
   
   vaild = False 
   while not vaild:
@@ -76,80 +76,67 @@ def weight_checker (question):
     except ValueError: 
       print (error)
 
+# Changes price of items to currency 
 def currency(x):
   return "${:.2f}".format(x)
+
 
 # Main routine goes here 
 get_budget = budget_checker ("What is your budget?: $")
 
 
-def get_item(var_fixed):
+# Set up dictionaries and lists 
+item_list= []
+price_list = []
+weight_gmml = []
+weight_kgl = []
+unit_price = []
 
-  # set up dictionaries and lists 
-  item_list= []
-  price_list = []
-  weight_gmml = []
-  weight_kgl = []
-  unit_price = []
+variable_dict = {
+  "Item": item_list,  
+  "Price": price_list,
+  "gm/ml": weight_gmml,
+  "kg/l": weight_kgl,
+  "Unit Price": unit_price
+}
+
+# Loop to get name, price and weight 
+item_name = ""
+while item_name.lower() != "xxx":
+
+  print ()
+  # Get name, price and weight of the item 
+  item_name = not_blank (" Item name: ")
+  if item_name.lower() == "xxx":
+    break
   
-  variable_dict = {
-    "Item": item_list,  
-    "Price": price_list,
-    "gm/ml": weight_gmml,
-    "kg/l": weight_kgl,
-    "Unit Price": unit_price
-  }
+  # Asks for price of item
+  price = num_checker(" Item Price:$" )
+
+  # Asks fro weight of item in gm/ml
+  weight_gm = weight_checker(" Item Weight(G/ML): ") 
   
-  # Loop to get name, price and weight 
-  item_name = ""
-  while item_name.lower() != "xxx":
-  
-    print ()
-    # Get name, price and weight of the item 
-    item_name = not_blank (" Item name: ")
-    if item_name.lower() == "xxx":
-      break
-    
-    # Asks for price of item
-    price = num_checker(" Item Price:$" )
+  # Converts weight in gm/ml to kg/l
+  weight_kg = weight_gm / 1000
 
-    # Asks fro weight of item in gm/ml
-    weight_gm = weight_checker(" Item Weight(G/ML): ") 
-    
-    # Converts weight in gm/ml to kg/l
-    weight_kg = weight_gm / 1000
+  # Calculates the unit price  
+  unit = price / weight_kg  
 
-    # Calculates the unit price  
-    unit = price / weight_kg  
-  
-    # Add item, price, weight and unit ptice to list  
-    item_list.append(item_name)
-    price_list.append(price)
-    weight_gmml.append(weight_gm)
-    weight_kgl.append(weight_kg)
-    unit_price.append(unit)
+  # Add item, price, weight and unit ptice to list  
+  item_list.append(item_name)
+  price_list.append(price)
+  weight_gmml.append(weight_gm)
+  weight_kgl.append(weight_kg)
+  unit_price.append(unit)
 
 
-  expenses_frame = pandas.DataFrame (variable_dict)
-  expenses_frame = expenses_frame.set_index('Item')
-  
+expenses_frame = pandas.DataFrame (variable_dict)
+expenses_frame = expenses_frame.set_index('Item')
 
-  # Currency formatting (uses currency function)
-  add_dollars = ['Price', 'Unit Price']
-  for item in add_dollars: 
-    expenses_frame[item] = expenses_frame[item].apply(currency)
-
-
-  return [expenses_frame]
-\
-
-def recommended_price (float ): none 
-
-
-# Main routine goes here 
- 
-variable_expenses = get_item("variable")
-variable_frame = variable_expenses
+# Currency formatting (uses currency function)
+add_dollars = ['Price', 'Unit Price']
+for item in add_dollars: 
+  expenses_frame[item] = expenses_frame[item].apply(currency)
 
 
 # *** Printing area ***
@@ -159,9 +146,10 @@ print("*** Overwiew ***")
 print()
 print("Your Budget: $", get_budget)
 print()
-print(variable_frame)
+# Prints data Frame 
+print (expenses_frame)
 print()
-
-
-
-
+# Recommendation 
+print("*** Recommendation *** ")
+print()
+print(expenses_frame.loc[expenses_frame['Unit Price']==expenses_frame['Unit Price'].min(),:])
