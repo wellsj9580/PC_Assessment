@@ -1,4 +1,4 @@
-import pandas
+import pandas 
 
 # Function goes here 
 
@@ -80,10 +80,10 @@ def weight_checker (question):
 def currency(x):
   return "${:.2f}".format(x)
 
+# *** Main routine goes here ***
 
-# Main routine goes here 
+# Asks for the budget  
 get_budget = budget_checker ("What is your budget?: $")
-
 
 # Set up dictionaries and lists 
 item_list= []
@@ -113,7 +113,7 @@ while item_name.lower() != "xxx":
   # Asks for price of item
   price = num_checker(" Item Price:$" )
 
-  # Asks fro weight of item in gm/ml
+  # Asks for weight of item in gm/ml
   weight_gm = weight_checker(" Item Weight(G/ML): ") 
   
   # Converts weight in gm/ml to kg/l
@@ -129,7 +129,6 @@ while item_name.lower() != "xxx":
   weight_kgl.append(weight_kg)
   unit_price.append(unit)
 
-
 expenses_frame = pandas.DataFrame (variable_dict)
 expenses_frame = expenses_frame.set_index('Item')
 
@@ -137,7 +136,6 @@ expenses_frame = expenses_frame.set_index('Item')
 add_dollars = ['Price', 'Unit Price']
 for item in add_dollars: 
   expenses_frame[item] = expenses_frame[item].apply(currency)
-
 
 # *** Printing area ***
 
