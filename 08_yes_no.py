@@ -1,3 +1,4 @@
+
 def yes_no (question):
 
   error = "Please answer yes/no"
